@@ -258,7 +258,7 @@
                     <div class="col-lg-6">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Area Chart</h3>
+                                <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Heatmap for Malaria</h3>
                             </div>
                             <div class="panel-body">
                               <div id="map"></div>
@@ -268,12 +268,12 @@
                     <div class="col-lg-6">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i> Donut Chart</h3>
+                                <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i>What to do?</h3>
                             </div>
                             <div class="panel-body">
 
 
-                              <form ame="f1"  action="/features" method='GET' >
+                              <form ame="f1"  action="/map" method='GET' >
 
                                   <h2><a name="standard-select" class="anchor" href="#standard-select">Health Interventions</a></h2>
                                   <div class="side-by-side clearfix">
@@ -295,14 +295,29 @@
                                     </div>
                                   </div>
 
+                                  <h2><a name="standard-select" class="anchor" href="#standard-select">What to do?</a></h2>
+
+                                  <div class="side-by-side clearfix">
+                                    <div>
+                                      <select data-placeholder="Choose a county" id="map_input" name="map_input" class="chosen-select" style="width:600px;" tabindex="2">
+                                        <option value='0'>None</option>
+                                        <option value='20'>20 More Bed Nets</option>
+                                        <option value='40'>40 More Bed Nets</option>
+                                        <option value='60'>60 More Bed Nets</option>
+                                        <option value='80'>80 More Bed Nets</option>
+                                        <option value='100'>100 More Bed Nets</option>
+                                      </select>
+                                    </div>
+                                  </div>
+
                                   <h2><a name="standard-select" class="anchor" href="#standard-select">County</a></h2>
 
                                   <div class="side-by-side clearfix">
                                     <div>
                                       <!-- <em>Into This</em> -->
                                       <select data-placeholder="Choose a county" id="map_county" name="map_county" class="chosen-select" style="width:600px;" tabindex="2">
-                                        <option value='a/chuko'>a/tsembila</option>
-                                        <option value='a/ketema'>a/tsembila</option>
+                                        <option value='a/chuko'>a/chuko</option>
+                                        <option value='a/ketema'>a/ketema</option>
                                         <option value='a/tsembila'>a/tsembila</option>
                                         <option value='a/wondo'>a/wondo</option>
                                         <option value='abaala'>abaala</option>
@@ -316,7 +331,10 @@
 
                             </div>
                         </div>
+                        <p class="lead">Before: {{before}}  <br> After: {{after}}</p>
+
                     </div>
+
                 </div>
 
                 <!-- /.row -->
@@ -2690,7 +2708,7 @@
 
         var map = new L.Map('map', {
           //center: new L.LatLng(41.8781, -87.6298),
-          center: new L.LatLng(7.9,38.0),
+          center: new L.LatLng(10.5,38.0),
           zoom: 6,
           layers: [baseLayer, heatmapLayer]
         });
@@ -2702,7 +2720,7 @@
       };
       </script>
       <script>
-      var mapmargin = 300;
+      var mapmargin = 60;
       $('#map').css("height", ($(window).height() - mapmargin));
       $(window).on("resize", resize);
       resize();

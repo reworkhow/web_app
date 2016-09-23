@@ -27,10 +27,6 @@ import pickle
 #con = None
 #con = psycopg2.connect(database = dbname, user = user)
 
-@app.route('/map')
-def index10():
-    return render_template("mapbox.html")
-
 @app.route('/')
 @app.route('/index')
 def index123():
@@ -78,8 +74,8 @@ def features():
     importances = forest.feature_importances_
     indices = np.argsort(importances)[::-1]
 
-    pickle.dump( forest, open( "/Users/haocheng/Desktop/web_app2/flaskexample/data/forest.p", "wb" ) )
-    #pickle.dump( forest, open( "/Users/haocheng/Desktop/web_app2/flaskexample/data/forest.p", "wb" ) )
+    pickle.dump(forest, open( "/Users/haocheng/Desktop/web_app2/flaskexample/data/forest.p", "wb" ) )
+    pickle.dump(df, open( "/Users/haocheng/Desktop/web_app2/flaskexample/data/df.p", "wb" ) )
 
     for f in range(X_train.shape[1]):
         print("%2d) %-*s %f" % (f + 1, 30,
@@ -93,6 +89,29 @@ def features():
     Importance_1=int(100*importances[indices[0]]),Importance_2=int(100*importances[indices[1]]),
     Importance_3=int(100*importances[indices[2]]),Importance_4=int(100*importances[indices[3]]),
     Importance_5=int(100*importances[indices[4]]),)
+
+#@app.route('/map')
+#def index10():
+#    return render_template("mapbox.html")
+
+
+@app.route('/map')
+def map():
+    map_intervention = request.args.getlist('map_intervention')[0]
+    map_county       = request.args.getlist('map_county')[0]
+    map_input        = request.args.getlist('map_input')[0]
+    print map_intervention,map_county,map_input
+
+    forest=pickle.load(open("/Users/haocheng/Desktop/web_app2/flaskexample/data/forest.p", "rb" ) )
+    df    =pickle.load(open("/Users/haocheng/Desktop/web_app2/flaskexample/data/df.p", "rb" ) )
+
+    X_old = df.values.copy()
+    df[map_intervention]=df[map_intervention]+int(map_input)
+    X_new = df.values.copy()
+    myafter = forest.predict(X_new)[0]
+    mybefore = forest.predict(X_old)[0]
+    return render_template("feature_importance.html",before=mybefore,after=myafter)
+
 
 @app.route('/plot')
 def plotly_test():

@@ -268,16 +268,72 @@
                     <div class="col-lg-6">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i> Donut Chart</h3>
+                                <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i>What to do?</h3>
                             </div>
                             <div class="panel-body">
-                                <div id="morris-donut-chart"></div>
-                                <div class="text-right">
-                                    <a href="#">View Details <i class="fa fa-arrow-circle-right"></i></a>
-                                </div>
+
+
+                              <form ame="f1"  action="/features" method='GET' >
+
+                                  <h2><a name="standard-select" class="anchor" href="#standard-select">Health Interventions</a></h2>
+                                  <div class="side-by-side clearfix">
+                                    <div>
+                                      <!-- <em>Into This</em> -->
+                                      <select data-placeholder="Choose a Health intervention" id="map_intervention" name="map_intervention" class="chosen-select" style="width:600px;" tabindex="2">
+                                        <option value='Number of staff'>Number of staff</option>
+                                        <option value='Number of Doctors'>Number of Doctors</option>
+                                        <option value='Percentage of underweight Children'>Percentage of underweight Children</option>
+                                        <option value='Proportion of children 6-59 months with severe acute malnutrition'>Proportion of children 6-59 months with severe acute malnutrition</option>
+                                        <option value='Proportion of HHs using latrine'>Proportion of HHs using latrine</option>
+                                        <option value='Proportion of  households covered with mosquito bed nets(LLIN)'>Proportion of  households covered with mosquito bed nets(LLIN)</option>
+                                        <option value='Proportion of functional 1 to 5 networks'>Proportion of functional 1 to 5 networks</option>
+                                        <option value='Health budget utilization'>Health budget utilization</option>
+                                        <option value='Essential drugs availability'>Essential drugs availability</option>
+                                        <option value='Integrated Supportive supervision'>Integrated Supportive supervision</option>
+                                        <option value='Reporting completeness'>Reporting completeness</option>
+                                      </select>
+                                    </div>
+                                  </div>
+
+                                  <h2><a name="standard-select" class="anchor" href="#standard-select">County</a></h2>
+
+                                  <div class="side-by-side clearfix">
+                                    <div>
+                                      <!-- <em>Into This</em> -->
+                                      <select data-placeholder="Choose a county" id="map_input" name="map_county" class="chosen-select" style="width:600px;" tabindex="2">
+                                        <option value='1'>100 More Bed Nets</option>
+                                        <option value='2'>200 More Bed Nets</option>
+                                        <option value='3'>300 More Bed Nets</option>
+                                        <option value='4'>400 More Bed Nets</option>
+                                        <option value='5'>500 More Bed Nets</option>
+                                      </select>
+                                    </div>
+                                  </div>
+
+
+                                  <h2><a name="standard-select" class="anchor" href="#standard-select">County</a></h2>
+
+                                  <div class="side-by-side clearfix">
+                                    <div>
+                                      <!-- <em>Into This</em> -->
+                                      <select data-placeholder="Choose a county" id="map_county" name="map_county" class="chosen-select" style="width:600px;" tabindex="2">
+                                        <option value='a/chuko'>a/tsembila</option>
+                                        <option value='a/ketema'>a/tsembila</option>
+                                        <option value='a/tsembila'>a/tsembila</option>
+                                        <option value='a/wondo'>a/wondo</option>
+                                        <option value='abaala'>abaala</option>
+                                      </select>
+                                    </div>
+                                  </div>
+
+                                  <button type="submit" class="btn btn-default btn-lg" >Run!</button>
+
+                                </form>
+
                             </div>
                         </div>
                     </div>
+
                 </div>
 
                 <!-- /.row -->
@@ -2651,7 +2707,7 @@
 
         var map = new L.Map('map', {
           //center: new L.LatLng(41.8781, -87.6298),
-          center: new L.LatLng(7.9,38.0),
+          center: new L.LatLng(10.5,38.0),
           zoom: 6,
           layers: [baseLayer, heatmapLayer]
         });
@@ -2663,7 +2719,7 @@
       };
       </script>
       <script>
-      var mapmargin = 300;
+      var mapmargin = 60;
       $('#map').css("height", ($(window).height() - mapmargin));
       $(window).on("resize", resize);
       resize();
