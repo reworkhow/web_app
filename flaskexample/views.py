@@ -108,9 +108,24 @@ def map():
     X_old = df.values.copy()
     df[map_intervention]=df[map_intervention]+int(map_input)
     X_new = df.values.copy()
-    myafter = forest.predict(X_new)[0]
-    mybefore = forest.predict(X_old)[0]
-    return render_template("feature_importance.html",before=mybefore,after=myafter)
+    #overall add same value
+    myafter_all = forest.predict(X_new)
+    mybefore_all = forest.predict(X_old)
+
+    #return whole heatmap
+    data = pd.read_csv("/Users/haocheng/Desktop/web_app2/flaskexample/data/data.csv")
+    mymap = data.loc[:,['lat','lng']]
+    mymap['Malaria positivity rate (Calculated Indicators)']=myafter_all
+
+    #return for one county
+    county_index = data.Location.values.tolist().index(map_county)
+    myafter = myafter_all[county_index]
+    mybefore = mybefore_all[county_index]
+
+    #pos['Malaria positivity rate (Calculated Indicators)']=
+
+
+    return render_template("map.html",before=mybefore,after=myafter)
 
 
 @app.route('/plot')
