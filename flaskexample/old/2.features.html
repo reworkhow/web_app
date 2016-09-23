@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ethiopia and Malaria</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="shortcut icon" href="static/images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="static/images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox.js/v2.2.4/mapbox.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="static/build/min/bundle.css">
+    <link rel="stylesheet" href="static/js/vendor/font-awesome-4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/js/chosen_v1.6.2/docsupport/style.css">
+    <link rel="stylesheet" href="static/js/chosen_v1.6.2/docsupport/prism.css">
+    <link rel="stylesheet" href="static/js/chosen_v1.6.2/chosen.css">
+
+    <!-- dimple-->
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="http://dimplejs.org/dist/dimple.v2.1.6.min.js"></script>
+
+    <style type="text/css" media="all">/* fix rtl for demo */
+    .chosen-rtl .chosen-drop { left: -9000px; }
+    </style>
+  </head>
+
+  <body class="zen-style minified">
+    <header id="header">
+      <div id="logo-group">
+        <span id="logo">Ethiopia</span>
+      </div>
+
+      <!-- pulled right: nav area -->
+      <div class="pull-right">
+        <ul class="auth-button pull-right">
+          <span>
+            <a href="https://www.malarianomore.org/pages/the-challenge">More about malaria</a>
+          </span>
+        </ul>
+
+
+
+        <!-- end multiple lang -->
+
+      </div>
+      <!-- end pulled right: nav area -->
+    </header>
+
+    <!-- Left panel : Navigation area -->
+
+
+      <aside id="left-panel" data-spy="affix" data-offset-top="49">
+  <nav id="side-nav">
+    <ul>
+      <li >
+        <a href="index">
+          <i class="fa fa-lg fa-fw fa-search"></i> <span class="menu-item-parent">Analyze</span>
+        </a>
+      </li>
+      <li class="active">
+        <a href="stat">
+          <i class="fa fa-lg fa-fw fa-th-large"></i> <span class="menu-item-parent">Basic Statistics</span>
+        </a>
+      </li>
+
+      <li >
+        <a href="index">
+          <i class="fa fa-lg fa-fw fa-map-marker"></i> <span class="menu-item-parent">Heatmaps</span>
+        </a>
+      </li>
+      <li >
+        <a href="index">
+          <i class="fa fa-lg fa-fw fa-envelope"></i> <span class="menu-item-parent">More</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <span id="minifyme" class="minifyme"> <i class="fa fa-arrow-circle-left hit"></i> </span>
+</aside>
+        <!-- RIBBON -->
+        <div id="ribbon">
+          <span class="ribbon-button-alignment">
+            <i class="flag flag-et"></i> &nbsp;
+          </span>
+
+          <!-- breadcrumb -->
+          <ol class="breadcrumb">
+              <li>Ethiopia</li>
+              <li>Public Health Data</li>
+          </ol>
+          <!-- end breadcrumb -->
+        </div>
+        <!-- END RIBBON -->
+
+    <!-- END NAVIGATION -->
+      <form ame="f1" >
+    <div id="container">
+      <div id="content">
+        <header>
+          <h1>Ethiopia</h1>
+        </header>
+        <img src="data:image/png;base64, {{ plot_url }}">
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+  <script src="static/js/chosen_v1.6.2/chosen.jquery.js" type="text/javascript"></script>
+  <script src="static/js/chosen_v1.6.2/docsupport/prism.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+    var config = {
+      '.chosen-select'           : {},
+      '.chosen-select-deselect'  : {allow_single_deselect:true},
+      '.chosen-select-no-single' : {disable_search_threshold:10},
+      '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+      '.chosen-select-width'     : {width:"95%"}
+    }
+    for (var selector in config) {
+      $(selector).chosen(config[selector]);
+    }
+  </script>
+  </form>
+
+
+
+    <script src="static/js/vendor/jquery-1.9.1.js"></script>
+    <script src="static/js/vendor/bootstrap-3.3.6.js"></script>
+    <script>
+      $(function() {
+        if (!localStorage.hideMenu || localStorage.hideMenu == 0) {
+          $('body').toggleClass('minified')
+              .removeClass('hidden-menu');
+          $('html').removeClass('hidden-menu-mobile-lock');
+        }
+        $('#minifyme').on('click', function() {
+          localStorage.hideMenu = (localStorage.hideMenu == 1) ? 0 : 1;
+          $('body').toggleClass('minified')
+              .removeClass('hidden-menu');
+          $('html').removeClass('hidden-menu-mobile-lock');
+          analytics.track('Sidebar toggle', {hide: localStorage.hideMenu});
+        });
+      });
+    </script>
+
+  <script src="static/build/min/commons.bundle.js"></script>
+  <script src="static/js/vendor/bootstrap-datepicker-1.5.1.js"></script>
+  <script src="static/js/vendor/bootstrap-select-1.9.4.js"></script>
+  <script src="static/js/vendor/jquery.dataTables-1.10.10.js"></script>
+  <script src="static/js/vendor/dataTables.bootstrap-1.10.10.js"></script>
+  <script src="static/js/vendor/mapbox-2.2.4.js"></script>
+  <script src="static/js/vendor/leaflet-heat-0.2.0.js"></script>
+  <script src="static/js/vendor/plotly-1.5.0.js"></script>
+  <script src="static/build/min/query.bundle.js"></script>
+
+  </body>
+</html>
