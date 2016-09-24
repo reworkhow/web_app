@@ -119,13 +119,14 @@ def map():
 
     #return for one county
     county_index = data.Location.values.tolist().index(map_county)
-    myafter = myafter_all[county_index]
+    myafter = 2*mybefore_all[county_index]-myafter_all[county_index]
     mybefore = mybefore_all[county_index]
 
-    #pos['Malaria positivity rate (Calculated Indicators)']=
+    #send json
+    test=mymap.T.to_dict().values()
+    json_string = json.dumps(test)
 
-
-    return render_template("map.html",before=mybefore,after=myafter)
+    return render_template("map.html",before=mybefore,after=myafter,json_string=json_string)
 
 
 @app.route('/plot')
