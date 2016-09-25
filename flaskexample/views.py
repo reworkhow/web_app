@@ -19,7 +19,7 @@ import seaborn as sns
 from sklearn.preprocessing import Imputer
 import pickle
 import HTMLParser
-
+import os
 
 #user = 'haocheng' #add your username here (same as previous postgreSQL)
 #host = 'localhost'
@@ -49,7 +49,10 @@ def features():
        'Integrated Supportive supervision', 'Reporting completeness']
        """
 
-    df = pd.read_csv("/Users/haocheng/Desktop/web_app2/flaskexample/data/data.csv")
+    df = pd.read_csv("flaskexample/data/data.csv")
+    cwd = os.getcwd()
+    print cwd
+
     #weight
     w1 = df['Reporting completeness'].values
 
@@ -75,8 +78,8 @@ def features():
     importances = forest.feature_importances_
     indices = np.argsort(importances)[::-1]
 
-    pickle.dump(forest, open( "/Users/haocheng/Desktop/web_app2/flaskexample/data/forest.p", "wb" ) )
-    pickle.dump(df, open( "/Users/haocheng/Desktop/web_app2/flaskexample/data/df.p", "wb" ) )
+    pickle.dump(forest, open( "flaskexample/data/forest.p", "wb" ) )
+    pickle.dump(df, open( "flaskexample/data/df.p", "wb" ) )
 
     for f in range(X_train.shape[1]):
         print("%2d) %-*s %f" % (f + 1, 30,
@@ -91,11 +94,6 @@ def features():
     Importance_3=int(100*importances[indices[2]]),Importance_4=int(100*importances[indices[3]]),
     Importance_5=int(100*importances[indices[4]]),)
 
-#@app.route('/map')
-#def index10():
-#    return render_template("mapbox.html")
-
-
 @app.route('/map')
 def map():
     map_intervention = request.args.getlist('map_intervention')[0]
@@ -103,8 +101,8 @@ def map():
     map_input        = request.args.getlist('map_input')[0]
     print map_intervention,map_county,map_input
 
-    forest=pickle.load(open("/Users/haocheng/Desktop/web_app2/flaskexample/data/forest.p", "rb" ) )
-    df    =pickle.load(open("/Users/haocheng/Desktop/web_app2/flaskexample/data/df.p", "rb" ) )
+    forest=pickle.load(open("flaskexample/data/forest.p", "rb" ) )
+    df    =pickle.load(open("flaskexample/data/df.p", "rb" ) )
 
     X_old = df.values.copy()
     df[map_intervention]=df[map_intervention]+int(map_input)
@@ -114,26 +112,31 @@ def map():
     mybefore_all = forest.predict(X_old)
 
     #return whole heatmap
-    data = pd.read_csv("/Users/haocheng/Desktop/web_app2/flaskexample/data/data.csv")
+    data = pd.read_csv("flaskexample/data/data.csv")
     mymap = data.loc[:,['lat','lng']]
     mymap['Malaria positivity rate (Calculated Indicators)']=myafter_all
-    #mymap['Malaria positivity rate (Calculated Indicators)']=data.loc[:,'Malaria positivity rate (Calculated Indicators)']
-    mymap['Malaria positivity rate (Calculated Indicators)']=4.0
+    #mymap['Malaria positivity rate (Calculated Indicators)']=data.loc[:,'Malaria rate']
+    #mymap['Malaria positivity rate (Calculated Indicators)']=4.0
 
     #return for one county
     county_index = data.Location.values.tolist().index(map_county)
     myafter = 2*mybefore_all[county_index]-myafter_all[county_index]
     mybefore = mybefore_all[county_index]
+    myafter,mybefore = myafter*300000/100, mybefore*300000/100
+    mysave = int(mybefore-myafter)
+    totalsave = int(-sum((mybefore_all-myafter_all)*300000/100))
+
 
     #send json
     test=mymap.T.to_dict().values()
     json_string = json.dumps(test)
-    print json_string
+    #print json_string
     #parser = HTMLParser.HTMLParser()
     #json_string = parser.unescape(json_string)
 
 
-    return render_template("map.html",before=mybefore,after=myafter,json_string=json_string)
+    return render_template("map.html",before=mybefore,after=myafter,mysave=mysave,
+    totalsave=totalsave,map_county=map_county,json_string=json_string)
 
 
 @app.route('/plot')

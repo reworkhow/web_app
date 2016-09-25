@@ -154,6 +154,7 @@
                                 </div>
                               </div>
 
+                              <!--<button class="select">Select all</button>-->
                               <button type="submit" class="btn btn-default btn-lg" >Run!</button>
 
                             </form>
@@ -374,7 +375,16 @@
       for (var selector in config) {
         $(selector).chosen(config[selector]);
       }
+      //$('select').chosen();
+      //$('.select').click(function(){
+      //    $('option').prop('selected', true);
+      //    $('select').trigger('chosen:updated');
+      //});
+
     </script>
+
+
+
     <script>
       window.onload = function() {
 

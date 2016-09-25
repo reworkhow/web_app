@@ -331,7 +331,8 @@
 
                             </div>
                         </div>
-                        <p class="lead">Before: {{before}}  <br> After: {{after}}</p>
+                        <p class="lead">Number of people affacted by malaria is reduced {{mysave}} in county {{map_county}}. and
+                        {{totalsave}} nationwide.</p>
 
                     </div>
 
@@ -382,6 +383,7 @@
 
         var testData = {
           max: 80,
+          min: 0,
           data:JSON.parse({{json_string|tojson}}) //1. convert array to string 2,convert string to json
         };
 
@@ -402,7 +404,7 @@
           // if set to false the heatmap uses the global maximum for colorization
           // if activated: uses the data maximum within the current map boundaries
           //   (there will always be a red spot with useLocalExtremas true)
-          "useLocalExtrema": true,
+          //"useLocalExtrema": true, //trun this off result in no color with absolute value
           // which field name in your data represents the latitude - default "lat"
           latField: 'lat',
           // which field name in your data represents the longitude - default "lng"
