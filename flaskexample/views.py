@@ -5,10 +5,10 @@ from flaskexample import app
 #from sqlalchemy_utils import database_exists, create_database
 import pandas as pd
 #import psycopg2
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import StringIO
 import base64
-from a_Model import ModelIt
+#from a_Model import ModelIt
 from random_forest import plot
 from sklearn.cross_validation import train_test_split
 from sklearn.ensemble import RandomForestRegressor
