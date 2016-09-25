@@ -82,10 +82,10 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Slides <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="slides">Slide 1</a>
+                                <a href="#">Slide 1</a>
                             </li>
                             <li>
-                                <a href="slides">Slide 2</a>
+                                <a href="#">Slide 2</a>
                             </li>
                         </ul>
                     </li>
@@ -95,254 +95,24 @@
         </nav>
 
         <div id="page-wrapper">
+          <div class="container-fluid">
 
-            <div class="container-fluid">
+              <!-- Page Heading -->
+              <div class="row">
+                  <div class="col-lg-12">
+                      <h1 class="page-header">
+                          Ethiopia <small>Malaria</small>
+                      </h1>
+                      <ol class="breadcrumb">
+                          <li class="active">
+                              <i class="fa fa-dashboard"></i> Dashboard
+                          </li>
+                      </ol>
+                  </div>
+              </div>
 
-                <!-- Page Heading -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">
-                            Ethiopia <small>Malaria</small>
-                        </h1>
-                        <ol class="breadcrumb">
-                            <li class="active">
-                                <i class="fa fa-dashboard"></i> Dashboard
-                            </li>
-                        </ol>
-                    </div>
-                </div>
-
-                <div class="row">
-
-                    <div class="col-lg-6">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Tasks Panel</h3>
-                            </div>
-                            <div class="panel-body">
-
-                              <form ame="f1"  action="/features" method='GET' >
-
-                              <h2><a name="standard-select" class="anchor" href="#standard-select">Health Outcomes</a></h2>
-                              <div class="side-by-side clearfix">
-                                <div>
-                                  <!-- <em>Into This</em> -->
-                                  <select data-placeholder="Choose a Health Outcomes" id="outcome" name="outcome" class="chosen-select" style="width:350px;" tabindex="2">
-                                    <option value="Malaria">Malaria</option>
-                                    <option value="HIV">HIV</option>
-                                    <option value="TB">TB</option>
-                                  </select>
-                                </div>
-                              </div>
-
-                              <h2><a name="multiple-select" class="anchor" href="#multiple-select">Health Interventions</a></h2>
-                              <div class="side-by-side clearfix">
-                                <div>
-                                  <select data-placeholder="Choose Health Interventions..." id="interventions" name="interventions" class="chosen-select" multiple style="width:350px;" tabindex="4">
-                                    <option value='Number of staff'>Number of staff</option>
-                                    <option value='Number of Doctors'>Number of Doctors</option>
-                                    <option value='Percentage of underweight Children'>Percentage of underweight Children</option>
-                                    <option value='Proportion of children 6-59 months with severe acute malnutrition'>Proportion of children 6-59 months with severe acute malnutrition</option>
-                                    <option value='Proportion of HHs using latrine'>Proportion of HHs using latrine</option>
-                                    <option value='Proportion of  households covered with mosquito bed nets(LLIN)'>Proportion of  households covered with mosquito bed nets(LLIN)</option>
-                                    <option value='Proportion of functional 1 to 5 networks'>Proportion of functional 1 to 5 networks</option>
-                                    <option value='Health budget utilization'>Health budget utilization</option>
-                                    <option value='Essential drugs availability'>Essential drugs availability</option>
-                                    <option value='Integrated Supportive supervision'>Integrated Supportive supervision</option>
-                                    <option value='Reporting completeness'>Reporting completeness</option>
-                                  </select>
-                                </div>
-                              </div>
-
-                              <!--<button class="select">Select all</button>-->
-                              <button type="submit" class="btn btn-default btn-lg" >Run!</button>
-
-                            </form>
-
-                                <div class="text-right">
-                                    <a href="#">View Cookbook <i class="fa fa-arrow-circle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>Feature Importance</h3>
-                            </div>
-                            <div class="panel-body">
-
-                              <div class="list-group">
-                                <li>
-                                    <a href="#">
-                                        <div>
-                                            <p>
-                                                <strong>{{Feature_1}}</strong>
-                                                <span class="pull-right text-muted">{{Importance_1}}%</span>
-                                            </p>
-                                            <div class="progress progress-striped active">
-                                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{Importance_1}}" aria-valuemin="0" aria-valuemax="100" style="width: {{Importance_1}}%">
-                                                    <span class="sr-only">{{Importance_1}}%</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div>
-                                            <p>
-                                                <strong>{{Feature_2}}</strong>
-                                                <span class="pull-right text-muted">{{Importance_2}}%</span>
-                                            </p>
-                                            <div class="progress progress-striped active">
-                                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{Importance_2}}" aria-valuemin="0" aria-valuemax="100" style="width: {{Importance_2}}%">
-                                                    <span class="sr-only">{{Importance_2}}%</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div>
-                                            <p>
-                                                <strong>{{Feature_3}}</strong>
-                                                <span class="pull-right text-muted">{{Importance_3}}%</span>
-                                            </p>
-                                            <div class="progress progress-striped active">
-                                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="{{Importance_3}}" aria-valuemin="0" aria-valuemax="100" style="width: {{Importance_3}}%">
-                                                    <span class="sr-only">{{Importance_3}}%</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div>
-                                            <p>
-                                                <strong>{{Feature_4}}</strong>
-                                                <span class="pull-right text-muted">{{Importance_4}}%</span>
-                                            </p>
-                                            <div class="progress progress-striped active">
-                                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="{{Importance_4}}" aria-valuemin="0" aria-valuemax="100" style="width: {{Importance_4}}%">
-                                                    <span class="sr-only">{{Importance_4}}%</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                <li>
-                                    <a href="#">
-                                        <div>
-                                            <p>
-                                                <strong>{{Feature_5}}</strong>
-                                                <span class="pull-right text-muted">{{Importance_5}}%</span>
-                                            </p>
-                                            <div class="progress progress-striped active">
-                                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="{{Importance_5}}" aria-valuemin="0" aria-valuemax="100" style="width: {{Importance_5}}%">
-                                                    <span class="sr-only">{{Importance_5}}%</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-
-                              </div>
-                            </div>
-                        </div>
-                    </div>
-                <!-- /.row -->
-
-                <!-- /.row -->
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Heatmap for Malaria</h3>
-                            </div>
-                            <div class="panel-body">
-                              <div id="map"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i>What to do?</h3>
-                            </div>
-                            <div class="panel-body">
-
-
-                              <form ame="f1"  action="/features" method='GET' >
-
-                                  <h2><a name="standard-select" class="anchor" href="#standard-select">Health Interventions</a></h2>
-                                  <div class="side-by-side clearfix">
-                                    <div>
-                                      <!-- <em>Into This</em> -->
-                                      <select data-placeholder="Choose a Health intervention" id="map_intervention" name="map_intervention" class="chosen-select" style="width:600px;" tabindex="2">
-                                        <option value='Number of staff'>Number of staff</option>
-                                        <option value='Number of Doctors'>Number of Doctors</option>
-                                        <option value='Percentage of underweight Children'>Percentage of underweight Children</option>
-                                        <option value='Proportion of children 6-59 months with severe acute malnutrition'>Proportion of children 6-59 months with severe acute malnutrition</option>
-                                        <option value='Proportion of HHs using latrine'>Proportion of HHs using latrine</option>
-                                        <option value='Proportion of  households covered with mosquito bed nets(LLIN)'>Proportion of  households covered with mosquito bed nets(LLIN)</option>
-                                        <option value='Proportion of functional 1 to 5 networks'>Proportion of functional 1 to 5 networks</option>
-                                        <option value='Health budget utilization'>Health budget utilization</option>
-                                        <option value='Essential drugs availability'>Essential drugs availability</option>
-                                        <option value='Integrated Supportive supervision'>Integrated Supportive supervision</option>
-                                        <option value='Reporting completeness'>Reporting completeness</option>
-                                      </select>
-                                    </div>
-                                  </div>
-
-                                  <h2><a name="standard-select" class="anchor" href="#standard-select">County</a></h2>
-
-                                  <div class="side-by-side clearfix">
-                                    <div>
-                                      <!-- <em>Into This</em> -->
-                                      <select data-placeholder="Choose a county" id="map_input" name="map_county" class="chosen-select" style="width:600px;" tabindex="2">
-                                        <option value='1'>100 More Bed Nets</option>
-                                        <option value='2'>200 More Bed Nets</option>
-                                        <option value='3'>300 More Bed Nets</option>
-                                        <option value='4'>400 More Bed Nets</option>
-                                        <option value='5'>500 More Bed Nets</option>
-                                      </select>
-                                    </div>
-                                  </div>
-
-
-                                  <h2><a name="standard-select" class="anchor" href="#standard-select">County</a></h2>
-
-                                  <div class="side-by-side clearfix">
-                                    <div>
-                                      <!-- <em>Into This</em> -->
-                                      <select data-placeholder="Choose a county" id="map_county" name="map_county" class="chosen-select" style="width:600px;" tabindex="2">
-                                        <option value='a/chuko'>a/tsembila</option>
-                                        <option value='a/ketema'>a/tsembila</option>
-                                        <option value='a/tsembila'>a/tsembila</option>
-                                        <option value='a/wondo'>a/wondo</option>
-                                        <option value='abaala'>abaala</option>
-                                      </select>
-                                    </div>
-                                  </div>
-
-                                  <button type="submit" class="btn btn-default btn-lg" >Run!</button>
-
-                                </form>
-
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- /.row -->
-
-
-            </div>
+              <iframe src="https://docs.google.com/presentation/d/1j0YiLatdGpqKuPWuNrGjIxowUUN4hjL-edZfIRklN6M/embed?start=false&loop=false&delayms=10000000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             <!-- /.container-fluid -->
-
         </div>
         <!-- /#page-wrapper -->
 

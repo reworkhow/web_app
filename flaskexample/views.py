@@ -137,3 +137,7 @@ def map():
 
     return render_template("map.html",before=mybefore,after=myafter,mysave=mysave,
     totalsave=totalsave,map_county=map_county,json_string=json_string)
+
+@app.route('/slides')
+def slides():
+    return render_template("slides.html")
