@@ -9,7 +9,7 @@ import pandas as pd
 import StringIO
 import base64
 #from a_Model import ModelIt
-from random_forest import plot
+#from random_forest import plot
 from sklearn.cross_validation import train_test_split
 from sklearn.ensemble import RandomForestRegressor
 import numpy as np
