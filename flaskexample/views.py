@@ -1,10 +1,10 @@
 from flask import request
 from flask import render_template
 from flaskexample import app
-from sqlalchemy import create_engine
-from sqlalchemy_utils import database_exists, create_database
+#from sqlalchemy import create_engine
+#from sqlalchemy_utils import database_exists, create_database
 import pandas as pd
-import psycopg2
+#import psycopg2
 import matplotlib.pyplot as plt
 import StringIO
 import base64
@@ -14,11 +14,11 @@ from sklearn.cross_validation import train_test_split
 from sklearn.ensemble import RandomForestRegressor
 import numpy as np
 import json
-import plotly.plotly
-import seaborn as sns
+#import plotly.plotly
+#import seaborn as sns
 from sklearn.preprocessing import Imputer
 import pickle
-import HTMLParser
+#import HTMLParser
 import os
 
 #user = 'haocheng' #add your username here (same as previous postgreSQL)
@@ -137,59 +137,3 @@ def map():
 
     return render_template("map.html",before=mybefore,after=myafter,mysave=mysave,
     totalsave=totalsave,map_county=map_county,json_string=json_string)
-
-
-@app.route('/plot')
-def plotly_test():
-    rng = pd.date_range('1/1/2011', periods=7500, freq='H')
-    ts = pd.Series(np.random.randn(len(rng)), index=rng)
-
-    graphs = [
-        dict(
-            data=[
-                dict(
-                    x=[1, 2, 3],
-                    y=[10, 20, 30],
-                    type='scatter'
-                ),
-            ],
-            layout=dict(
-                title='first graph'
-            )
-        ),
-
-        dict(
-            data=[
-                dict(
-                    x=[1, 3, 5],
-                    y=[10, 50, 30],
-                    type='bar'
-                ),
-            ],
-            layout=dict(
-                title='second graph'
-            )
-        ),
-
-        dict(
-            data=[
-                dict(
-                    x=ts.index,  # Can use the pandas data structures directly
-                    y=ts
-                )
-            ]
-        )
-    ]
-
-    # Add "ids" to each of the graphs to pass up to the client
-    # for templating
-    ids = ['graph-{}'.format(i) for i, _ in enumerate(graphs)]
-
-    # Convert the figures to JSON
-    # PlotlyJSONEncoder appropriately converts pandas, datetime, etc
-    # objects to their JSON equivalents
-    graphJSON = json.dumps(graphs, cls=plotly.utils.PlotlyJSONEncoder)
-
-    return render_template('plotly.html',
-                           ids=ids,
-                           graphJSON=graphJSON)
