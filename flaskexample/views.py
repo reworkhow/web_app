@@ -18,6 +18,7 @@ import plotly.plotly
 import seaborn as sns
 from sklearn.preprocessing import Imputer
 import pickle
+import HTMLParser
 
 
 #user = 'haocheng' #add your username here (same as previous postgreSQL)
@@ -116,6 +117,8 @@ def map():
     data = pd.read_csv("/Users/haocheng/Desktop/web_app2/flaskexample/data/data.csv")
     mymap = data.loc[:,['lat','lng']]
     mymap['Malaria positivity rate (Calculated Indicators)']=myafter_all
+    #mymap['Malaria positivity rate (Calculated Indicators)']=data.loc[:,'Malaria positivity rate (Calculated Indicators)']
+    mymap['Malaria positivity rate (Calculated Indicators)']=4.0
 
     #return for one county
     county_index = data.Location.values.tolist().index(map_county)
@@ -125,6 +128,10 @@ def map():
     #send json
     test=mymap.T.to_dict().values()
     json_string = json.dumps(test)
+    print json_string
+    #parser = HTMLParser.HTMLParser()
+    #json_string = parser.unescape(json_string)
+
 
     return render_template("map.html",before=mybefore,after=myafter,json_string=json_string)
 
