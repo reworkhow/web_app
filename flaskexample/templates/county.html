@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>End Malaria in Ethiopia</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/static/css/sb-admin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="/static/css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- chosen -->
+    <link rel="stylesheet" href="/static/js/chosen_v1.6.2/docsupport/style.css">
+    <link rel="stylesheet" href="/static/js/chosen_v1.6.2/docsupport/prism.css">
+    <link rel="stylesheet" href="/static/js/chosen_v1.6.2/chosen.css">
+
+    <!-- leaflet -->
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script src="/static/js/heatmap.js-2.0.5/build/heatmap.js"></script>
+    <script src="/static/js/heatmap.js-2.0.5/plugins/leaflet-heatmap/leaflet-heatmap.js"></script>
+
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index">End Malaria in Ethiopia</a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Hao Cheng <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li class="active">
+                        <a href="index"><i class="fa fa-fw fa-dashboard"></i> Ethiopia</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Slides <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li>
+                                <a href="slides">Slide 1</a>
+                            </li>
+                            <li>
+                                <a href="slides">Slide 2</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Ethiopia <small>Malaria</small>
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> Dashboard
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-lg-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Tasks Panel</h3>
+                            </div>
+                            <div class="panel-body">
+
+                          <form ame="f1"  action="/features" method='GET' >
+
+                              <h2><a name="standard-select" class="anchor" href="#standard-select">Health Outcome</a></h2>
+                              <div class="side-by-side clearfix">
+                                <div>
+                                  <!-- <em>Into This</em> -->
+                                  <select data-placeholder="Choose a Health Outcomes" id="outcome" name="outcome" class="chosen-select" style="width:350px;" tabindex="2">
+                                    <option value="Malaria">Malaria</option>
+                                    <option value="HIV">HIV</option>
+                                    <option value="TB">TB</option>
+                                  </select>
+                                </div>
+                              </div>
+
+                              <h2><a name="multiple-select" class="anchor" href="#multiple-select">Health Interventions</a></h2>
+                              <div class="side-by-side clearfix">
+                                <div>
+                                  <select data-placeholder="Choose Health Interventions..." id="interventions" name="interventions" class="chosen-select" multiple style="width:350px;" tabindex="4">
+                                    <option value='Number of staff'>Number of staff</option>
+                                    <option value='Number of doctors'>Number of doctors</option>
+                                    <option value='Percentage of underweight children'>Percentage of underweight children</option>
+                                    <option value='Proportion of children 6-59 months with severe acute malnutrition'>Proportion of children 6-59 months with severe acute malnutrition</option>
+                                    <option value='Proportion of households using latrine'>Proportion of households using latrine</option>
+                                    <option value='Proportion of  households covered with mosquito bed nets(LLIN)'>Proportion of  households covered with mosquito bed nets(LLIN)</option>
+                                    <option value='Health education level'>Health education level</option>
+                                    <option value='Health budget utilization'>Health budget utilization</option>
+                                    <option value='Essential drugs availability'>Essential drugs availability</option>
+                                    <option value='Integrated supportive supervision'>Integrated supportive supervision</option>
+                                    <option value='Reporting completeness'>Reporting completeness</option>
+                                  </select>
+                                </div>
+                              </div>
+
+                              <!-- <button type="submit" class="btn btn-warning" >Run!</button> -->
+                              <button type="submit">Run</button>
+                              <button class="select">Select all</button>
+
+                            </form>
+
+                                <div class="text-right">
+                                    <a href="#">View Cookbook <i class="fa fa-arrow-circle-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>Feature Importance</h3>
+                            </div>
+                            <div class="panel-body">
+
+                              <div class="list-group">
+                                <li>
+                                    <a href="#">
+                                        <div>
+                                            <p>
+                                                <strong>{{Feature_1}}</strong>
+                                                <span class="pull-right text-muted">{{Importance_1}}%</span>
+                                            </p>
+                                            <div class="progress progress-striped active">
+                                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{Importance_1}}" aria-valuemin="0" aria-valuemax="100" style="width: {{Importance_1}}%">
+                                                    <span class="sr-only">{{Importance_1}}%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div>
+                                            <p>
+                                                <strong>{{Feature_2}}</strong>
+                                                <span class="pull-right text-muted">{{Importance_2}}%</span>
+                                            </p>
+                                            <div class="progress progress-striped active">
+                                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{Importance_2}}" aria-valuemin="0" aria-valuemax="100" style="width: {{Importance_2}}%">
+                                                    <span class="sr-only">{{Importance_2}}%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div>
+                                            <p>
+                                                <strong>{{Feature_3}}</strong>
+                                                <span class="pull-right text-muted">{{Importance_3}}%</span>
+                                            </p>
+                                            <div class="progress progress-striped active">
+                                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="{{Importance_3}}" aria-valuemin="0" aria-valuemax="100" style="width: {{Importance_3}}%">
+                                                    <span class="sr-only">{{Importance_3}}%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div>
+                                            <p>
+                                                <strong>{{Feature_4}}</strong>
+                                                <span class="pull-right text-muted">{{Importance_4}}%</span>
+                                            </p>
+                                            <div class="progress progress-striped active">
+                                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="{{Importance_4}}" aria-valuemin="0" aria-valuemax="100" style="width: {{Importance_4}}%">
+                                                    <span class="sr-only">{{Importance_4}}%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                <li>
+                                    <a href="#">
+                                        <div>
+                                            <p>
+                                                <strong>{{Feature_5}}</strong>
+                                                <span class="pull-right text-muted">{{Importance_5}}%</span>
+                                            </p>
+                                            <div class="progress progress-striped active">
+                                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="{{Importance_5}}" aria-valuemin="0" aria-valuemax="100" style="width: {{Importance_5}}%">
+                                                    <span class="sr-only">{{Importance_5}}%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                <!-- /.row -->
+
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Heatmap for Malaria</h3>
+                            </div>
+                            <div class="panel-body">
+                              <div id="map"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i>What to do?</h3>
+                            </div>
+                            <div class="panel-body">
+
+
+                              <form ame="f1"  action="/map" method='GET' >
+
+                                  <h2><a name="standard-select" class="anchor" href="#standard-select">Health Interventions</a></h2>
+                                  <div class="side-by-side clearfix">
+                                    <div>
+                                      <!-- <em>Into This</em> -->
+                                      <select data-placeholder="Choose a Health intervention" id="map_intervention" name="map_intervention" class="chosen-select" style="width:600px;" tabindex="2">
+                                        <option value='Proportion of  households covered with mosquito bed nets(LLIN)'>Proportion of  households covered with mosquito bed nets(LLIN)</option>
+                                        <option value='Number of staff'>Number of staff</option>
+                                        <option value='Number of doctors'>Number of doctors</option>
+                                        <option value='Percentage of underweight children'>Percentage of underweight children</option>
+                                        <option value='Proportion of children 6-59 months with severe acute malnutrition'>Proportion of children 6-59 months with severe acute malnutrition</option>
+                                        <option value='Proportion of households using latrine'>Proportion of households using latrine</option>
+                                        <option value='Health education level'>Health education level</option>
+                                        <option value='Health budget utilization'>Health budget utilization</option>
+                                        <option value='Essential drugs availability'>Essential drugs availability</option>
+                                        <option value='Integrated supportive supervision'>Integrated supportive supervision</option>
+                                        <option value='Reporting completeness'>Reporting completeness</option>
+                                      </select>
+                                    </div>
+                                  </div>
+
+                                  <h2><a name="standard-select" class="anchor" href="#standard-select">What to do?</a></h2>
+
+                                  <div class="side-by-side clearfix">
+                                    <div>
+                                      <select data-placeholder="Choose a county" id="map_input" name="map_input" class="chosen-select" style="width:600px;" tabindex="2">
+                                        <option value='0'>None</option>
+                                        <option value='20'>2000 More Bed Nets</option>
+                                        <option value='40'>4000 More Bed Nets</option>
+                                        <option value='60'>6000 More Bed Nets</option>
+                                        <option value='80'>8000 More Bed Nets</option>
+                                        <option value='100'>1000 More Bed Nets</option>
+                                      </select>
+                                    </div>
+                                  </div>
+
+                                  <button type="submit" class="btn btn-default btn-lg" >Run!</button>
+                                </form>
+
+                              </br></br>
+
+                                <form ame="f1"  action="/county" method='GET' >
+                                  <h2><a name="standard-select" class="anchor" href="#standard-select">County</a></h2>
+
+                                  <div class="side-by-side clearfix">
+                                    <div>
+                                      <!-- <em>Into This</em> -->
+                                      <select data-placeholder="Choose a county" id="map_county" name="map_county" class="chosen-select" style="width:600px;" tabindex="2">
+                                        <option value='a/chuko'>a/chuko</option>
+                                        <option value='a/ketema'>a/ketema</option>
+                                        <option value='a/tsembila'>a/tsembila</option>
+                                        <option value='a/wondo'>a/wondo</option>
+                                        <option value='abaala'>abaala</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  </br>
+                                  <button type="submit" class="btn btn-default btn-lg" >Run!</button>
+                                </br></br>
+                                  <p class="lead">Conclusion:</p>
+                                  <p class="lead">The reduction in the number of malaria cases in {{map_county}} is {{mysave}}.</p>
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- /.row -->
+
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="/static/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/static/js/bootstrap.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="/static/js/plugins/morris/raphael.min.js"></script>
+    <script src="/static/js/plugins/morris/morris.min.js"></script>
+    <script src="/static/js/plugins/morris/morris-data.js"></script>
+
+    <!--for chosen.js-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+    <script src="/static/js/chosen_v1.6.2/chosen.jquery.js" type="text/javascript"></script>
+    <script src="/static/js/chosen_v1.6.2/docsupport/prism.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+      var config = {
+        '.chosen-select'           : {},
+        '.chosen-select-deselect'  : {allow_single_deselect:true},
+        '.chosen-select-no-single' : {disable_search_threshold:10},
+        '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+        '.chosen-select-width'     : {width:"95%"}
+      }
+      for (var selector in config) {
+        $(selector).chosen(config[selector]);
+      }
+    </script>
+    <script>
+
+      window.onload = function() {
+
+        var testData = {
+          max: 80,
+          min: 0,
+          data:JSON.parse({{json_string|tojson}}) //1. convert array to string 2,convert string to json
+        };
+
+        var baseLayer = L.tileLayer(
+          'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+            maxZoom: 6
+          }
+        );
+
+        var cfg = {
+          // radius should be small ONLY if scaleRadius is true (or small radius is intended)
+          //"radius": 2,
+          "radius": 0.4,
+          "maxOpacity": .8,
+          // scales the radius based on map zoom
+          "scaleRadius": true,
+          // if set to false the heatmap uses the global maximum for colorization
+          // if activated: uses the data maximum within the current map boundaries
+          //   (there will always be a red spot with useLocalExtremas true)
+          //"useLocalExtrema": true, //trun this off result in no color with absolute value
+          // which field name in your data represents the latitude - default "lat"
+          latField: 'lat',
+          // which field name in your data represents the longitude - default "lng"
+          lngField: 'lng',
+          // which field name in your data represents the data value - default "value"
+          //valueField: 'count'
+          valueField: 'Malaria positivity rate (Calculated Indicators)'
+        };
+
+
+        var heatmapLayer = new HeatmapOverlay(cfg);
+
+        var map = new L.Map('map', {
+          //center: new L.LatLng(41.8781, -87.6298),
+          center: new L.LatLng(10.5,38.0),
+          zoom: 6,
+          layers: [baseLayer, heatmapLayer]
+        });
+
+        heatmapLayer.setData(testData);
+
+        // make accessible for debugging
+        layer = heatmapLayer;
+      };
+      </script>
+      <script>
+      var mapmargin = 60;
+      $('#map').css("height", ($(window).height() - mapmargin));
+      $(window).on("resize", resize);
+      resize();
+      function resize(){
+
+      if($(window).width()>=980){
+        $('#map').css("height", ($(window).height() - mapmargin));
+        $('#map').css("margin-top",50);
+      }else{
+        $('#map').css("height", ($(window).height() - (mapmargin+12)));
+        $('#map').css("margin-top",-21);
+      }
+      }
+      </script>
+
+
+
+</body>
+
+</html>

@@ -70,7 +70,7 @@ def features():
 
     X_train, y_train = df.values ,y
 
-    forest = RandomForestRegressor(n_estimators=1000,
+    forest = RandomForestRegressor(n_estimators=500,
                                    random_state=999,
                                    n_jobs=-1,max_depth=5)
 
@@ -97,9 +97,9 @@ def features():
 @app.route('/map')
 def map():
     map_intervention = request.args.getlist('map_intervention')[0]
-    map_county       = request.args.getlist('map_county')[0]
+    #map_county       = request.args.getlist('map_county')[0]
     map_input        = request.args.getlist('map_input')[0]
-    print map_intervention,map_county,map_input
+    #print map_intervention,map_county,map_input
 
     forest=pickle.load(open("flaskexample/data/forest.p", "rb" ) )
     df    =pickle.load(open("flaskexample/data/df.p", "rb" ) )
@@ -119,24 +119,49 @@ def map():
     #mymap['Malaria positivity rate (Calculated Indicators)']=4.0
 
     #return for one county
-    county_index = data.Location.values.tolist().index(map_county)
-    myafter = 2*mybefore_all[county_index]-myafter_all[county_index]
-    mybefore = mybefore_all[county_index]
-    myafter,mybefore = myafter*300000/100, mybefore*300000/100
-    mysave = int(mybefore-myafter)
+    #county_index = data.Location.values.tolist().index(map_county)
+    #myafter = 2*mybefore_all[county_index]-myafter_all[county_index]
+    #mybefore = mybefore_all[county_index]
+    #myafter,mybefore = myafter*300000/100, mybefore*300000/100
+    #mysave = int(mybefore-myafter)
     totalsave = int(-sum((mybefore_all-myafter_all)*300000/100))
 
+    pickle.dump(mybefore_all, open( "flaskexample/data/mybefore_all.p", "wb" ) )
+    pickle.dump(myafter_all, open( "flaskexample/data/myafter_all.p", "wb" ) )
 
     #send json
     test=mymap.T.to_dict().values()
     json_string = json.dumps(test)
+
+    pickle.dump(json_string, open( "flaskexample/data/json_string.p", "wb" ) )
     #print json_string
     #parser = HTMLParser.HTMLParser()
     #json_string = parser.unescape(json_string)
 
 
-    return render_template("map.html",before=mybefore,after=myafter,mysave=mysave,
-    totalsave=totalsave,map_county=map_county,json_string=json_string)
+    #return render_template("map.html",before=mybefore,after=myafter,mysave=mysave,
+    #totalsave=totalsave,map_county=map_county,json_string=json_string)
+    return render_template("map.html",totalsave=totalsave,json_string=json_string)
+
+@app.route('/county')
+def county():
+    map_county       = request.args.getlist('map_county')[0]
+
+    mybefore_all=pickle.load(open( "flaskexample/data/mybefore_all.p", "rb" ) )
+    myafter_all=pickle.load(open( "flaskexample/data/myafter_all.p", "rb" ) )
+    json_string=pickle.load(open( "flaskexample/data/json_string.p", "rb" ) )
+
+
+    data = pd.read_csv("flaskexample/data/data.csv")
+
+    #return for one county
+    county_index = data.Location.values.tolist().index(map_county)
+    myafter = 2*mybefore_all[county_index]-myafter_all[county_index]
+    mybefore = mybefore_all[county_index]
+    myafter,mybefore = myafter*300000/100, mybefore*300000/100
+    mysave = int(mybefore-myafter)
+
+    return render_template("county.html",mysave=mysave,map_county=map_county,json_string=json_string)
 
 @app.route('/slides')
 def slides():

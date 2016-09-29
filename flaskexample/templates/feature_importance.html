@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Malaria No More</title>
+    <title>End Malaria in Ethiopia</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
@@ -59,7 +59,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index">Malaria No More</a>
+                <a class="navbar-brand" href="index">End Malaria in Ethiopia</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -82,10 +82,10 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Slides <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="#">Slide 1</a>
+                                <a href="slides">Slide 1</a>
                             </li>
                             <li>
-                                <a href="#">Slide 2</a>
+                                <a href="slides">Slide 2</a>
                             </li>
                         </ul>
                     </li>
@@ -123,7 +123,7 @@
 
                           <form ame="f1"  action="/features" method='GET' >
 
-                              <h2><a name="standard-select" class="anchor" href="#standard-select">Health Outcomes</a></h2>
+                              <h2><a name="standard-select" class="anchor" href="#standard-select">Health Outcome</a></h2>
                               <div class="side-by-side clearfix">
                                 <div>
                                   <!-- <em>Into This</em> -->
@@ -138,23 +138,25 @@
                               <h2><a name="multiple-select" class="anchor" href="#multiple-select">Health Interventions</a></h2>
                               <div class="side-by-side clearfix">
                                 <div>
-                                  <select data-placeholder="Choose Health Interventions..." id="interventions" name="interventions" class="chosen-select" multiple style="width:350px;" tabindex="4">
-                                    <option value='Number of staff'>Number of staff</option>
-                                    <option value='Number of Doctors'>Number of Doctors</option>
-                                    <option value='Percentage of underweight Children'>Percentage of underweight Children</option>
-                                    <option value='Proportion of children 6-59 months with severe acute malnutrition'>Proportion of children 6-59 months with severe acute malnutrition</option>
-                                    <option value='Proportion of HHs using latrine'>Proportion of HHs using latrine</option>
-                                    <option value='Proportion of  households covered with mosquito bed nets(LLIN)'>Proportion of  households covered with mosquito bed nets(LLIN)</option>
-                                    <option value='Proportion of functional 1 to 5 networks'>Proportion of functional 1 to 5 networks</option>
-                                    <option value='Health budget utilization'>Health budget utilization</option>
-                                    <option value='Essential drugs availability'>Essential drugs availability</option>
-                                    <option value='Integrated Supportive supervision'>Integrated Supportive supervision</option>
-                                    <option value='Reporting completeness'>Reporting completeness</option>
-                                  </select>
+                                    <select data-placeholder="Choose Health Interventions..." id="interventions" name="interventions" class="chosen-select" multiple style="width:350px;" tabindex="4">
+                                      <option value='Number of staff'>Number of staff</option>
+                                      <option value='Number of doctors'>Number of doctors</option>
+                                      <option value='Percentage of underweight children'>Percentage of underweight children</option>
+                                      <option value='Proportion of children 6-59 months with severe acute malnutrition'>Proportion of children 6-59 months with severe acute malnutrition</option>
+                                      <option value='Proportion of households using latrine'>Proportion of households using latrine</option>
+                                      <option value='Proportion of  households covered with mosquito bed nets(LLIN)'>Proportion of  households covered with mosquito bed nets(LLIN)</option>
+                                      <option value='Health education level'>Health education level</option>
+                                      <option value='Health budget utilization'>Health budget utilization</option>
+                                      <option value='Essential drugs availability'>Essential drugs availability</option>
+                                      <option value='Integrated supportive supervision'>Integrated supportive supervision</option>
+                                      <option value='Reporting completeness'>Reporting completeness</option>
+                                    </select>
                                 </div>
                               </div>
 
-                              <button type="submit" class="btn btn-default btn-lg" >Run!</button>
+                              <!-- <button type="submit" class="btn btn-warning" >Run!</button> -->
+                              <button type="submit">Run</button>
+                              <button class="select">Select all</button>
 
                             </form>
 
@@ -280,16 +282,16 @@
                                     <div>
                                       <!-- <em>Into This</em> -->
                                       <select data-placeholder="Choose a Health intervention" id="map_intervention" name="map_intervention" class="chosen-select" style="width:600px;" tabindex="2">
-                                        <option value='Number of staff'>Number of staff</option>
-                                        <option value='Number of Doctors'>Number of Doctors</option>
-                                        <option value='Percentage of underweight Children'>Percentage of underweight Children</option>
-                                        <option value='Proportion of children 6-59 months with severe acute malnutrition'>Proportion of children 6-59 months with severe acute malnutrition</option>
-                                        <option value='Proportion of HHs using latrine'>Proportion of HHs using latrine</option>
                                         <option value='Proportion of  households covered with mosquito bed nets(LLIN)'>Proportion of  households covered with mosquito bed nets(LLIN)</option>
-                                        <option value='Proportion of functional 1 to 5 networks'>Proportion of functional 1 to 5 networks</option>
+                                        <option value='Number of staff'>Number of staff</option>
+                                        <option value='Number of doctors'>Number of doctors</option>
+                                        <option value='Percentage of underweight children'>Percentage of underweight children</option>
+                                        <option value='Proportion of children 6-59 months with severe acute malnutrition'>Proportion of children 6-59 months with severe acute malnutrition</option>
+                                        <option value='Proportion of households using latrine'>Proportion of households using latrine</option>
+                                        <option value='Health education level'>Health education level</option>
                                         <option value='Health budget utilization'>Health budget utilization</option>
                                         <option value='Essential drugs availability'>Essential drugs availability</option>
-                                        <option value='Integrated Supportive supervision'>Integrated Supportive supervision</option>
+                                        <option value='Integrated supportive supervision'>Integrated supportive supervision</option>
                                         <option value='Reporting completeness'>Reporting completeness</option>
                                       </select>
                                     </div>
@@ -310,6 +312,12 @@
                                     </div>
                                   </div>
 
+                                  <button type="submit" class="btn btn-default btn-lg" >Run!</button>
+                                </form>
+                              </br></br>
+                                <p class="lead">Conclusion:</p>
+
+                                <form ame="f1"  action="/map" method='GET' >
                                   <h2><a name="standard-select" class="anchor" href="#standard-select">County</a></h2>
 
                                   <div class="side-by-side clearfix">
@@ -324,14 +332,15 @@
                                       </select>
                                     </div>
                                   </div>
-
                                   <button type="submit" class="btn btn-default btn-lg" >Run!</button>
+                                </br></br>
+
+                                  <p class="lead">Conclusion:</p>
 
                                 </form>
 
                             </div>
                         </div>
-                        <p class="lead">Before: {{before}}  <br> After: {{after}}</p>
 
                     </div>
 
