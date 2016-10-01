@@ -127,7 +127,7 @@
                               <div class="side-by-side clearfix">
                                 <div>
                                   <!-- <em>Into This</em> -->
-                                  <select data-placeholder="Choose a Health Outcomes" id="outcome" name="outcome" class="chosen-select" style="width:350px;" tabindex="2">
+                                  <select data-placeholder="Choose a Health Outcomes" id="outcome" name="outcome" class="chosen-select" style="width:350px" tabindex="2">
                                     <option value="Malaria">Malaria</option>
                                     <option value="HIV">HIV</option>
                                     <option value="TB">TB</option>
@@ -138,7 +138,7 @@
                               <h2><a name="multiple-select" class="anchor" href="#multiple-select">Health Interventions</a></h2>
                               <div class="side-by-side clearfix">
                                 <div>
-                                    <select data-placeholder="Choose Health Interventions..." id="interventions" name="interventions" class="chosen-select" multiple style="width:350px;" tabindex="4">
+                                    <select data-placeholder="Choose Health Interventions..." id="interventions" name="interventions" class="chosen-select" multiple style="width:350px" tabindex="4">
                                       <option value='Number of staff'>Number of staff</option>
                                       <option value='Number of doctors'>Number of doctors</option>
                                       <option value='Percentage of underweight children'>Percentage of underweight children</option>
@@ -281,7 +281,7 @@
                                   <div class="side-by-side clearfix">
                                     <div>
                                       <!-- <em>Into This</em> -->
-                                      <select data-placeholder="Choose a Health intervention" id="map_intervention" name="map_intervention" class="chosen-select" style="width:600px;" tabindex="2">
+                                      <select data-placeholder="Choose a Health intervention" id="map_intervention" name="map_intervention" class="chosen-select" data-width="fit" tabindex="2">
                                         <option value='Proportion of  households covered with mosquito bed nets(LLIN)'>Proportion of  households covered with mosquito bed nets(LLIN)</option>
                                         <option value='Number of staff'>Number of staff</option>
                                         <option value='Number of doctors'>Number of doctors</option>
@@ -301,21 +301,19 @@
 
                                   <div class="side-by-side clearfix">
                                     <div>
-                                      <select data-placeholder="Choose a county" id="map_input" name="map_input" class="chosen-select" style="width:600px;" tabindex="2">
+                                      <select data-placeholder="Choose a county" id="map_input" name="map_input" class="chosen-select" data-width="fit"  tabindex="2">
                                         <option value='0'>None</option>
                                         <option value='20'>2000 More Bed Nets</option>
                                         <option value='40'>4000 More Bed Nets</option>
                                         <option value='60'>6000 More Bed Nets</option>
                                         <option value='80'>8000 More Bed Nets</option>
-                                        <option value='100'>1000 More Bed Nets</option>
+                                        <option value='100'>10000 More Bed Nets</option>
                                       </select>
                                     </div>
                                   </div>
 
-                                  <button type="submit" class="btn btn-default btn-lg" >Run!</button>
+                                  <button type="submit">Run</button>
                                 </form>
-                              </br></br>
-                                <p class="lead">Conclusion:</p>
 
                                 <form ame="f1"  action="/map" method='GET' >
                                   <h2><a name="standard-select" class="anchor" href="#standard-select">County</a></h2>
@@ -323,20 +321,14 @@
                                   <div class="side-by-side clearfix">
                                     <div>
                                       <!-- <em>Into This</em> -->
-                                      <select data-placeholder="Choose a county" id="map_county" name="map_county" class="chosen-select" style="width:600px;" tabindex="2">
-                                        <option value='a/chuko'>a/chuko</option>
-                                        <option value='a/ketema'>a/ketema</option>
+                                      <select data-placeholder="Choose a county" id="map_county" name="map_county" class="chosen-select" data-width="fit" tabindex="2">
                                         <option value='a/tsembila'>a/tsembila</option>
                                         <option value='a/wondo'>a/wondo</option>
                                         <option value='abaala'>abaala</option>
                                       </select>
                                     </div>
                                   </div>
-                                  <button type="submit" class="btn btn-default btn-lg" >Run!</button>
-                                </br></br>
-
-                                  <p class="lead">Conclusion:</p>
-
+                                  <button type="submit">Run</button>
                                 </form>
 
                             </div>
