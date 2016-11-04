@@ -56,8 +56,8 @@ def features():
     #weight
     w1 = df['Reporting completeness'].values
 
-    y  = df.loc[:,'Malaria rate'].values
-    df = df.drop('Malaria rate',axis=1)
+    y  = df.loc[:,outcome[0]].values
+    df = df.drop(outcome[0],axis=1)
     df = df.loc[:,interventions]
 
     #imputaion
@@ -86,7 +86,14 @@ def features():
                                 feat_labels[indices[f]],
                                 importances[indices[f]]))
 
-    return render_template("feature_importance.html",
+
+        data = pd.read_csv("flaskexample/data/data.csv")
+        mymap = data.loc[:,['lat','lng']]
+        mymap['Malaria positivity rate (Calculated Indicators)']=data.loc[:,outcome[0]]
+        test=mymap.T.to_dict().values()
+        json_string = json.dumps(test)
+
+    return render_template("feature_importance.html",json_string=json_string,
     Feature_1=feat_labels[indices[0]],Feature_2=feat_labels[indices[1]],
     Feature_3=feat_labels[indices[2]],Feature_4=feat_labels[indices[3]],
     Feature_5=feat_labels[indices[4]],
@@ -115,8 +122,6 @@ def map():
     data = pd.read_csv("flaskexample/data/data.csv")
     mymap = data.loc[:,['lat','lng']]
     mymap['Malaria positivity rate (Calculated Indicators)']=myafter_all
-    #mymap['Malaria positivity rate (Calculated Indicators)']=data.loc[:,'Malaria rate']
-    #mymap['Malaria positivity rate (Calculated Indicators)']=4.0
 
     #return for one county
     #county_index = data.Location.values.tolist().index(map_county)
@@ -162,7 +167,3 @@ def county():
     mysave = int(mybefore-myafter)
 
     return render_template("county.html",mysave=mysave,map_county=map_county,json_string=json_string)
-
-@app.route('/slides')
-def slides():
-    return render_template("slides.html")
