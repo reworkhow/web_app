@@ -129,7 +129,7 @@ def map():
     #mybefore = mybefore_all[county_index]
     #myafter,mybefore = myafter*300000/100, mybefore*300000/100
     #mysave = int(mybefore-myafter)
-    totalsave = int(-sum((mybefore_all-myafter_all)*300000/100))
+    totalsave = int(sum((mybefore_all-myafter_all)*300000/100))
 
     pickle.dump(mybefore_all, open( "flaskexample/data/mybefore_all.p", "wb" ) )
     pickle.dump(myafter_all, open( "flaskexample/data/myafter_all.p", "wb" ) )

@@ -90,9 +90,6 @@
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">
-                            Ethiopia <small>Malaria</small>
-                        </h1>
                         <ol class="breadcrumb">
                             <li class="active">
                                 <i class="fa fa-dashboard"></i> Dashboard
@@ -128,17 +125,16 @@
                               <div class="side-by-side clearfix">
                                 <div>
                                   <select data-placeholder="Choose Health Interventions..." id="interventions" name="interventions" class="chosen-select" multiple style="width:350px" tabindex="4">
-                                    <option value='Number of staff'>Number of staff</option>
-                                    <option value='Number of doctors'>Number of doctors</option>
-                                    <option value='Percentage of underweight children'>Percentage of underweight children</option>
-                                    <option value='Proportion of children 6-59 months with severe acute malnutrition'>Proportion of children 6-59 months with severe acute malnutrition</option>
-                                    <option value='Proportion of households using latrine'>Proportion of households using latrine</option>
-                                    <option value='Proportion of  households covered with mosquito bed nets(LLIN)'>Proportion of  households covered with mosquito bed nets(LLIN)</option>
-                                    <option value='Health education level'>Health education level</option>
-                                    <option value='Health budget utilization'>Health budget utilization</option>
-                                    <option value='Essential drugs availability'>Essential drugs availability</option>
-                                    <option value='Integrated supportive supervision'>Integrated supportive supervision</option>
-                                    <option value='Reporting completeness'>Reporting completeness</option>
+                                      <option value='Health Interventions 1'>Health Interventions 1</option>
+                                      <option value='Health Interventions 2'>Health Interventions 2</option>
+                                      <option value='Health Interventions 3'>Health Interventions 3</option>
+                                      <option value='Health Interventions 4'>Health Interventions 4</option>
+                                      <option value='Health Interventions 5'>Health Interventions 5</option>
+                                      <option value='Health Interventions 6'>Health Interventions 6</option>
+                                      <option value='Health Interventions 7'>Health Interventions 7</option>
+                                      <option value='Health Interventions 8'>Health Interventions 8</option>
+                                      <option value='Health Interventions 9'>Health Interventions 9</option>
+                                      <option value='Health Interventions 10'>Health Interventions 10</option>
                                   </select>
                                 </div>
                               </div>
@@ -249,7 +245,7 @@
                     <div class="col-lg-6">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Heatmap for Malaria</h3>
+                                <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Heatmap</h3>
                             </div>
                             <div class="panel-body">
                               <div id="map"></div>
@@ -271,17 +267,16 @@
                                     <div>
                                       <!-- <em>Into This</em> -->
                                       <select data-placeholder="Choose a Health intervention" id="map_intervention" name="map_intervention" class="chosen-select" data-width="fit" tabindex="2">
-                                        <option value='Proportion of  households covered with mosquito bed nets(LLIN)'>Proportion of  households covered with mosquito bed nets(LLIN)</option>
-                                        <option value='Number of staff'>Number of staff</option>
-                                        <option value='Number of doctors'>Number of doctors</option>
-                                        <option value='Percentage of underweight children'>Percentage of underweight children</option>
-                                        <option value='Proportion of children 6-59 months with severe acute malnutrition'>Proportion of children 6-59 months with severe acute malnutrition</option>
-                                        <option value='Proportion of households using latrine'>Proportion of households using latrine</option>
-                                        <option value='Health education level'>Health education level</option>
-                                        <option value='Health budget utilization'>Health budget utilization</option>
-                                        <option value='Essential drugs availability'>Essential drugs availability</option>
-                                        <option value='Integrated supportive supervision'>Integrated supportive supervision</option>
-                                        <option value='Reporting completeness'>Reporting completeness</option>
+                                          <option value='Health Interventions 1'>Health Interventions 1</option>
+                                          <option value='Health Interventions 2'>Health Interventions 2</option>
+                                          <option value='Health Interventions 3'>Health Interventions 3</option>
+                                          <option value='Health Interventions 4'>Health Interventions 4</option>
+                                          <option value='Health Interventions 5'>Health Interventions 5</option>
+                                          <option value='Health Interventions 6'>Health Interventions 6</option>
+                                          <option value='Health Interventions 7'>Health Interventions 7</option>
+                                          <option value='Health Interventions 8'>Health Interventions 8</option>
+                                          <option value='Health Interventions 9'>Health Interventions 9</option>
+                                          <option value='Health Interventions 10'>Health Interventions 10</option>
                                       </select>
                                     </div>
                                   </div>
@@ -292,11 +287,11 @@
                                     <div>
                                       <select data-placeholder="Choose a county" id="map_input" name="map_input" class="chosen-select" data-width="fit" tabindex="2">
                                         <option value='0'>None</option>
-                                        <option value='20'>2000 More Bed Nets</option>
-                                        <option value='40'>4000 More Bed Nets</option>
-                                        <option value='60'>6000 More Bed Nets</option>
-                                        <option value='80'>8000 More Bed Nets</option>
-                                        <option value='100'>10000 More Bed Nets</option>
+                                        <option value='20'>2000 More</option>
+                                        <option value='40'>4000 More</option>
+                                        <option value='60'>6000 More</option>
+                                        <option value='80'>8000 More</option>
+                                        <option value='100'>10000 More</option>
                                       </select>
                                     </div>
                                   </div>
@@ -309,7 +304,7 @@
                               <blockquote>
                                 <header>Conclusion: </header>
                                 </br>
-                                <p>The reduction in the number of malaria cases is {{totalsave}} nationwide.</p>
+                                <p>The reduction is {{totalsave}} nationwide.</p>
                               </blockquote>
 
                                 <form ame="f1"  action="/county" method='GET' >
