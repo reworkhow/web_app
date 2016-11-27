@@ -1,7 +1,8 @@
-# data analytic platform using public health data and geospatial data 
+# data analytic web app to predict certain health outcomes using public health data and geospatial data 
 
-* Trained and validated machine learning methods (e.g.random forest,SVM)
-* a web application to predict certain health outcomes in Ethiopia using Flask, SQL, Javascript and AWS
+* a web application using Flask, SQL, Javascript and AWS
+* machine learning methods (e.g.random forest,SVM) behind
 
 
-
+1. run ./run.py
+2. open http://0.0.0.0:5000/
